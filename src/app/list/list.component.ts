@@ -1,28 +1,23 @@
-import { Component, OnInit} from '@angular/core';
-import { HttpService} from './../http.service';
-import { Item } from './../Item';
-import { url } from 'inspector';
-import { Observable } from 'rxjs/Observable';
+import { Component,Input} from '@angular/core';
+import { HttpService } from './../http.service'
 
 @Component({
-    selector: 'list',
+    selector: 'applist',
     templateUrl:'./list.component.html',
     styleUrls: ['./list.component.css']
 })
 
-export class ListComponent implements OnInit{
-   
-    items: Item[];
-    location:{}; 
-    constructor(private httpService: HttpService){
-        this.items = [];
-        console.log(this.items)
+export class ListComponent {
+    @Input() list:object[];
+    constructor(private httpservice: HttpService){ }
+
+    onTurnPage(num:number){
+        console.log(num);
+        num.toString();
+        this.httpservice.params.page = num.toString();
+        this.httpservice.getData().subscribe((data:any)=>{
+            console.log(data.response.listings)
+            this.list = data.response.listings;
+        }) 
     }
-      
-    ngOnInit(){
-        this.httpService.getData().subscribe((data:any)=>{
-            // this.location = data.response.locations[0];
-            this.items = data.response.listings;
-        })
-    }
-}
+}    

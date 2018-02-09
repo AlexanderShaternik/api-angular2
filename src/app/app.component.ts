@@ -1,5 +1,6 @@
-import { Component} from '@angular/core';
-import { Item } from './item';
+import { Component, OnInit,Input} from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import { HttpService } from './http.service'
 
 @Component({
     selector: 'app',
@@ -7,5 +8,33 @@ import { Item } from './item';
     styleUrls: ['./app.component.css'] 
 })
 
-export class AppComponent  { 
+export class AppComponent implements OnInit  { 
+    @Input() list:object[];
+    myForm : FormGroup;
+    constructor(private formBuilder: FormBuilder,private httpservice:HttpService){
+    }
+
+    ngOnInit() {
+    this.myForm = this.formBuilder.group({
+        listing_type: ["buy"],
+        place_name: ["chelsea",[Validators.required]]
+        })
+    }
+    onSubmit(){
+        this.setForm(this.myForm.value.listing_type,this.myForm.value.place_name);
+        this.myForm.reset();
+    }
+    
+    setForm(type:string,place:string){
+        this.httpservice.params.listing_type = type;
+        this.httpservice.params.place_name = place;
+        this.loadlist();
+    }
+
+    loadlist(){
+        this.httpservice.getData().subscribe((data:any)=>{
+            console.log(data.response.listings)
+            this.list = data.response.listings;
+        })
+    }
 }

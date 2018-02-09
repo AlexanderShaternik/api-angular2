@@ -1,0 +1,35 @@
+.pagginator{
+    display:flex;
+    justify-content:center;
+    flex-flow:row;
+}
+
+.btn {
+	display:flex;
+    justify-content:center;
+    height: 38px;
+	border:none;
+	color:white;
+	font-size: 16px;
+	font-weight: 500;
+	width: 50px;
+	text-decoration: none;
+	padding: 2px;
+    background: #0073d9;
+	border: 1px solid #4b4b4b;
+	cursor: pointer;
+	transition: 0.2s;
+} 
+.btn:hover { 
+	background:  #3f94dd;
+}
+.btn:active {
+	background:  #025299;
+}
+
+.btn-pages{
+	background: #a5d2fa;
+	border: 1px solid #4b4b4b;
+	color:#4b4b4b;
+	
+}

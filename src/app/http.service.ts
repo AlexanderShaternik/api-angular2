@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
   
 @Injectable()
 export class HttpService{
-    private apiUrl1 = 'http://api.nestoria.co.uk/api';
+    // list: object[];
+    private apiUrl1 = 'https://api.nestoria.co.uk/api';
     params = {
         encoding: 'json',
         pretty: '1',
@@ -16,10 +17,11 @@ export class HttpService{
         listing_type: 'buy',
         language: 'en',
         place_name: 'chelsea'
-    };
+    }
     constructor(private http: HttpClient){ }
 
     getData():Observable<any>{
-        return this.http.get('http://api.nestoria.co.uk/api',{ params:this.params });
+        return this.http.get(this.apiUrl1,{ params:this.params });
     }  
+
 }   

@@ -1,0 +1,16 @@
+<a href="#" class="results_link">
+    <div  class="listing_list">
+        <div class="listing_list_cover ">
+            <img [src]="item?.img_url" >
+        </div>
+        <div class="listing_list_content ">
+            <div class="listing__title">
+                <span class="listing_title_price">{{item?.price_formatted}}</span>
+                <span class="listing_title_text">{{item?.title}}</span> 
+             </div>
+            <div class="listing_keywords">
+                <span>{{item?.keywords}}</span>
+            </div>
+        </div>
+    </div>
+</a>

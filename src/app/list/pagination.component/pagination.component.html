@@ -1,0 +1,17 @@
+<div class="pagginator">
+    <div>
+        <button class="btn" (click)="turnPage(back)" >
+            Back
+        </button>
+    </div>
+    <div  >
+        <button class="btn btn-pages" (click)="turnPage(btn)"   >
+           {{currentPage}}
+        </button>
+    </div>
+    <div>
+        <button class="btn" (click)="turnPage(next)" >
+           Next
+        </button>
+    </div>
+</div>

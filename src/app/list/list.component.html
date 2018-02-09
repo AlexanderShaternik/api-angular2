@@ -1,21 +1,5 @@
-<ul class="listings__results">
-    <li *ngFor="let item of items" >
-        <a href="#" class="results__link">
-            <div  class="listing_list">
-                <div class="listing_list__cover ">
-                    <img [src]="item?.img_url" >
-                </div>
-                <div class="listing_list__content ">
-                    <div class="listing__title">
-                        <span class="listing__title__price ">{{item?.price_formatted}}</span>
-                        <span class="listing__title__text" >{{item?.title}}</span> 
-                        <!-- <span class="location">{{location?.title}} </span> -->
-                    </div>
-                    <div class="listing__keywords">
-                        <span>{{item?.keywords}}</span>
-                    </div>
-                </div>
-            </div>
-         </a>
-    </li>
-</ul>
+<div class="listings_results">
+    <app-pagination (onTurnPage)="onTurnPage($event)"></app-pagination>
+    <appitem *ngFor="let item of list" [item]="item"></appitem>
+    <app-pagination (onTurnPage)="onTurnPage($event)"></app-pagination>
+</div>

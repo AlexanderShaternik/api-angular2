@@ -1,7 +1,14 @@
 <div class="main">
-    <div class="header">
-        <h1>{{title}}</h1>
-    </div>
-    <list>
-    </list>
-</div>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit()">
+        <label class="btn"><p>Buy</p>
+            <input type="radio" value="buy" formControlName="listing_type"/>
+        </label>  
+        <label class="btn"><p>Rent</p>
+            <input type="radio" value="rent" formControlName="listing_type"/>
+        </label>         
+            <input  type="text"  formControlName="place_name"   /> 
+        <button class="btn">List</button>
+    </form>
+    <applist [list]= "list" >
+    </applist>
+</div>  
