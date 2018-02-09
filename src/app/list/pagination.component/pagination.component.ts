@@ -15,11 +15,9 @@ next:string="next";
 
 @Output() onTurnPage = new EventEmitter<number>()
 turnPage(page:string){
-    this.onTurnPage.emit(page == "next"? ++this.currentPage:page == 'back'&& this.currentPage !== 1?--this.currentPage : !isNaN(+page) ? this.currentPage = +page : null)
+    this.onTurnPage.emit(page == "next"? ++this.currentPage:page == 'back'&& this.currentPage !== 1?--this.currentPage :this.currentPage = +page)
     console.log(this.currentPage)
-    // for (let i = 0; i < this.currentPage; i++){
 
-    //     }
     }
 }
 
