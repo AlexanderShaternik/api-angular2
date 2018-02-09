@@ -1,5 +1,5 @@
 <div class="listings_results">
-    <app-pagination (onTurnPage)="onTurnPage($event)"></app-pagination>
+    <app-pagination (onTurnPage)="onTurnPage($event)" [currentPage]="currentPage" *ngIf="load"></app-pagination>
     <appitem *ngFor="let item of list" [item]="item"></appitem>
-    <app-pagination (onTurnPage)="onTurnPage($event)"></app-pagination>
+    <app-pagination (onTurnPage)="onTurnPage($event)" [currentPage]="currentPage" *ngIf="load"></app-pagination>
 </div>

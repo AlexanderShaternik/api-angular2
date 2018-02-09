@@ -8,17 +8,18 @@ import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
 })
 
 export class PaginationComponent{
-paginations:number[]=[1,2,3,4,5]
-currentPage: number=1;
+// paginations:number[]=[1,2,3,4,5]
+@Input() currentPage: number;
 back:string="back";
 next:string="next";
 
 @Output() onTurnPage = new EventEmitter<number>()
 turnPage(page:string){
-    console.log(page);
-    this.onTurnPage.emit(page == "next"? ++this.currentPage:page == 'back'?--this.currentPage:this.currentPage = +page)
+    this.onTurnPage.emit(page == "next"? ++this.currentPage:page == 'back'&& this.currentPage !== 1?--this.currentPage : !isNaN(+page) ? this.currentPage = +page : null)
+    console.log(this.currentPage)
     // for (let i = 0; i < this.currentPage; i++){
 
     //     }
     }
 }
+

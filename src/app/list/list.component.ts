@@ -9,10 +9,14 @@ import { HttpService } from './../http.service'
 
 export class ListComponent {
     @Input() list:object[];
+    @Input() load:boolean;
+    currentPage: number=1;
+    
     constructor(private httpservice: HttpService){ }
 
     onTurnPage(num:number){
-        console.log(num);
+        this.currentPage = num;
+        num=num+3;
         num.toString();
         this.httpservice.params.page = num.toString();
         this.httpservice.getData().subscribe((data:any)=>{

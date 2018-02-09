@@ -14,9 +14,9 @@ export class HttpService{
         action: 'search_listings',
         country: 'uk',
         number_of_results: '20',
-        listing_type: 'buy',
+        listing_type: '',
         language: 'en',
-        place_name: 'chelsea'
+        place_name: ''
     }
     constructor(private http: HttpClient){ }
 

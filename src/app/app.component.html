@@ -6,9 +6,9 @@
         <label class="btn"><p>Rent</p>
             <input type="radio" value="rent" formControlName="listing_type"/>
         </label>         
-            <input  type="text"  formControlName="place_name"   /> 
+            <input  type="text"  formControlName="place_name" /> 
         <button class="btn">List</button>
     </form>
-    <applist [list]= "list" >
+    <applist [list]= "list" *ngIf="load" [load]="load">
     </applist>
 </div>  

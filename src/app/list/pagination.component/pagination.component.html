@@ -1,11 +1,11 @@
 <div class="pagginator">
     <div>
-        <button class="btn" (click)="turnPage(back)" >
+        <button class="btn" (click)="turnPage(back)"  *ngIf="currentPage > 1" >
             Back
         </button>
     </div>
     <div  >
-        <button class="btn btn-pages" (click)="turnPage(btn)"   >
+        <button class="btn btn-pages" (click)="turnPage(currentPage)"   >
            {{currentPage}}
         </button>
     </div>

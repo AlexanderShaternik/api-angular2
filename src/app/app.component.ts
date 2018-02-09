@@ -10,6 +10,7 @@ import { HttpService } from './http.service'
 
 export class AppComponent implements OnInit  { 
     @Input() list:object[];
+    load: boolean = false;
     myForm : FormGroup;
     constructor(private formBuilder: FormBuilder,private httpservice:HttpService){
     }
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit  {
     ngOnInit() {
     this.myForm = this.formBuilder.group({
         listing_type: ["buy"],
-        place_name: ["chelsea",[Validators.required]]
+        place_name: ["manchester",[Validators.required]]
         })
     }
     onSubmit(){
@@ -32,9 +33,11 @@ export class AppComponent implements OnInit  {
     }
 
     loadlist(){
+        this.load=true;
         this.httpservice.getData().subscribe((data:any)=>{
             console.log(data.response.listings)
             this.list = data.response.listings;
         })
+        
     }
 }
