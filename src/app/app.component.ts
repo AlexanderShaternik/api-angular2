@@ -25,7 +25,7 @@ export class AppComponent implements OnInit  {
         place_name: ["manchester"]
         })
     }
-    
+
     onSubmit(){
         this.setForm(this.myForm.value.listing_type,this.myForm.value.place_name);
         this.myForm.reset();
