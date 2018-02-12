@@ -9,8 +9,8 @@
             <input type="radio" value="rent" formControlName="listing_type"/>
         </label>         
             <input  type="text"  formControlName="place_name" /> 
-        <button class="btn">List</button>
+        <button class="btn" [disabled]="!myForm.value.place_name">List</button>
     </form>
-    <applist [list]= "list" *ngIf="load" [load]="load">
+    <applist [list]= "list" *ngIf="load" [load]="load" [currentPage]="currentPage">
     </applist>
 </div>  

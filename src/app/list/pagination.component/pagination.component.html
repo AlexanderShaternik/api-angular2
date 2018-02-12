@@ -1,17 +1,17 @@
 <div class="pagginator">
-    <div>
-        <button class="btn" (click)="turnPage(back)"  *ngIf="currentPage > 1" >
+    <div > 
+        <button class="btn" (click)="turnPage(currentPage-1)"  *ngIf="currentPage > 1" >
             Back
         </button>
     </div>
-    <div  >
-        <button class="btn btn-pages" (click)="turnPage(currentPage)"   >
-           {{currentPage}}
+    <div *ngFor="let btn of paginations" >
+        <button class="btn btn-pages" (click)="turnPage(btn)" [ngClass]="{'btn-current':btn==currentPage}"  *ngIf="btn>0">
+            {{btn}}
         </button>
     </div>
     <div>
-        <button class="btn" (click)="turnPage(next)" >
-           Next
+        <button class="btn" (click)="turnPage(currentPage+1)" >
+            Next
         </button>
     </div>
 </div>

@@ -1,4 +1,5 @@
-import { Component,Input} from '@angular/core';
+import { Component,Input } from '@angular/core';
+import { Item } from './../../Item';
 
 @Component({
     selector: 'appitem',
@@ -7,5 +8,5 @@ import { Component,Input} from '@angular/core';
 })
 
 export class ItemComponent{
-    @Input() item:object;
+    @Input() item:Item;
 }

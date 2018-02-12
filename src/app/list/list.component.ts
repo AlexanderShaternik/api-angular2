@@ -1,5 +1,6 @@
-import { Component,Input} from '@angular/core';
-import { HttpService } from './../http.service'
+import { Component,Input } from '@angular/core';
+import { HttpService } from './../http.service';
+import { Item } from './../Item';
 
 @Component({
     selector: 'applist',
@@ -8,19 +9,20 @@ import { HttpService } from './../http.service'
 })
 
 export class ListComponent {
-    @Input() list:object[];
+    @Input() list:Item[];
     @Input() load:boolean;
-    currentPage: number=1;
-    
+    @Input() currentPage: number;
+    paginations:number[]=[1,2,3,4,5];
     constructor(private httpservice: HttpService){ }
 
     onTurnPage(num:number){
         this.currentPage = num;
+        for (let i = this.currentPage - 3; i < this.currentPage + 4; i++) {
+            this.paginations[i + 3 - this.currentPage] = i;
+        }
         num=num+3;
-        num.toString();
         this.httpservice.params.page = num.toString();
         this.httpservice.getData().subscribe((data:any)=>{
-            console.log(data.response.listings)
             this.list = data.response.listings;
         }) 
     }

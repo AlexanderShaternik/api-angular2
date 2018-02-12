@@ -1,5 +1,4 @@
-import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
-
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-pagination',
@@ -8,16 +7,13 @@ import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
 })
 
 export class PaginationComponent{
-// paginations:number[]=[1,2,3,4,5]
+@Input() paginations:number[];
 @Input() currentPage: number;
-back:string="back";
-next:string="next";
 
 @Output() onTurnPage = new EventEmitter<number>()
-turnPage(page:string){
-    this.onTurnPage.emit(page == "next"? ++this.currentPage:page == 'back'&& this.currentPage !== 1?--this.currentPage :this.currentPage = +page)
-    console.log(this.currentPage)
-
+turnPage(page:number){
+    this.onTurnPage.emit(page)
+    window.scrollTo(0,0);
     }
 }
 

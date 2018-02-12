@@ -23,7 +23,8 @@
 .btn:hover { 
 	background:  #3f94dd;
 }
-.btn:active {
+
+.btn:active, .btn-{
 	background:  #025299;
 }
 
@@ -31,5 +32,8 @@
 	background: #a5d2fa;
 	border: 1px solid #4b4b4b;
 	color:#4b4b4b;
-	
+}
+
+.btn-pages.btn-current{
+	border:3px solid #025299;
 }

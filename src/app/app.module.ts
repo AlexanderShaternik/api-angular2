@@ -14,7 +14,6 @@ import { PaginationComponent } from "./list/pagination.component/pagination.comp
     declarations: [AppComponent,ListComponent,ItemComponent,PaginationComponent],
     providers:    [ HttpService ],
     bootstrap:    [AppComponent],
-    
 })   
 export class AppModule{ }
  
