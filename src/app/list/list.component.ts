@@ -22,8 +22,6 @@ export class ListComponent {
         }
         num=num+3;
         this.httpservice.params.page = num.toString();
-        this.httpservice.getData().subscribe((data:any)=>{
-            this.list = data.response.listings;
-        }) 
+        this.httpservice.getData().subscribe(data=>this.list = data.response.listings) 
     }
 }    

@@ -20,7 +20,7 @@ export class HttpService{
     }
     constructor(private http: HttpClient){ }
 
-    getData():Observable<object>{
+    getData():Observable<any>{
         return this.http.get(this.apiUrl1,{ params:this.params });
     }  
 
